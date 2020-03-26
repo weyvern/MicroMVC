@@ -31,7 +31,9 @@
         $url = rtrim($_GET['url'], '/');
         $url = filter_var($url, FILTER_SANITIZE_URL);
         $url = explode('/', $url);
-        return $url;
+      } else {
+        $url = [$this->currentController, $this->currentMethod];
       }
+      return $url;
     }
   }
